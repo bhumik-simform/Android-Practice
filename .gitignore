@@ -1,0 +1,78 @@
+############################
+# 🔹 General OS Files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# 🔹 IDE / Editor Files
+############################
+.vscode/
+.idea/
+*.iml
+
+############################
+# 🔹 Logs
+############################
+*.log
+
+############################
+# 🔹 Environment Files
+############################
+.env
+.env.*
+
+############################
+# 🔹 Java / Maven
+############################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+############################
+# 🔹 Kotlin
+############################
+*.class
+*.jar
+*.kotlin_module
+*.kts~
+
+############################
+# 🔹 Gradle (used in Kotlin/Android)
+############################
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+############################
+# 🔹 Android
+############################
+*.apk
+*.ap_
+*.aab
+local.properties
+
+# Android Studio generated
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Keystore files (IMPORTANT - never commit)
+*.jks
+*.keystore
+
+############################
+# 🔹 Misc Build Outputs
+############################
+out/
+bin/
+
+############################
+# 🔹 Temporary Files
+############################
+*.tmp
+*.swp
+*~
