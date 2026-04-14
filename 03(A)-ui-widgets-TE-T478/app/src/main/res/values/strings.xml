@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">UI Components A</string>
+    <string name="bell">Bell</string>
+    <string name="change_colour">Change Colour</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="submit_text">Submit</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+</resources>
