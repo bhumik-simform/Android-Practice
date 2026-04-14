@@ -1,0 +1,34 @@
+The Scenario: The "RideShare" Dispatch & Payment System
+Your task is to design the core classes and relationships that handle users, vehicle management, ride dispatching, and payments. You are building the foundation of the app, so the architecture needs to be robust, scalable, and secure.
+
+1. Core Architecture (Classes, Objects, & 4 Pillars of OOP)
+Abstraction & Inheritance: * Create an abstract class called Account. 
+Every person using the app shares common attributes (Name, Phone Number, Rating, Location coordinates) and behaviors (updateLocation, getProfile).
+Derive specific Rider and Driver classes from Account. Drivers will have additional attributes like current availability and a linked vehicle.
+Encapsulation: Protect sensitive data. A rider's wallet balance should not be directly modifiable from outside their respective classes.
+Use strict getter/setter logic or transactional methods (e.g., addFunds, deductFare).
+
+Polymorphism & Abstract Classes: * Create an abstract Vehicle class with vehicle details.
+Extend it with specific classes like Hatchback, Sedan, and Motorcycle.
+Implement an abstract method calculateBaseMultiplier() in Vehicle that returns a different price multiplier depending on the vehicle type (e.g., a Sedan costs more per kilometer than a Motorcycle).
+
+2. Interfaces (Contracts)
+Payment System: Create a PaymentMethod interface with a method processPayment(double amount).
+Implement this interface in concrete classes like CreditCardPayment, WalletPayment. 
+This allows the ride engine to process payments without caring about how the user is paying.
+
+3. Enums (Fixed States)
+Use an Enum for RideStatus (REQUESTED, ACCEPTED, ARRIVING, IN_PROGRESS, COMPLETED, CANCELLED).
+Use an Enum for RideType (ECONOMY, PREMIUM, POOL).
+
+4. Grouped Datatypes (Collections Framework)
+Map: The central dispatch system needs lightning-fast lookups. Use a HashMap<String, Account> to store all registered users, using their unique Phone Number or UUID as the key.
+ArrayList: Maintain an ArrayList<Driver> for drivers currently online and available in a specific city grid. This list changes frequently as drivers go on and offline.
+LinkedList: Inside the Rider class, use a LinkedList<Ride> to store their ride history. 
+A LinkedList is highly efficient here because new rides are constantly added to the very front (head) of the history, representing the most recent trips.
+
+5. Error Handling (Custom Exceptions)
+You must anticipate real-world failures and handle them gracefully using try-catch blocks and custom exception classes extending Exception or RuntimeException:
+DriverUnavailableException: Thrown when a rider requests a trip, but the ArrayList of available drivers is empty.
+InsufficientFundsException: Thrown when a processPayment() call fails because the rider's wallet balance is lower than the final fare.
+InvalidRouteException: Thrown if the pickup and drop-off coordinates are exactly the same.
