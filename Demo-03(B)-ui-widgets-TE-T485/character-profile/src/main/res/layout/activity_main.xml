@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/got_profile_bg_main"
+    tools:context=".MainActivity"
+    tools:ignore="MissingPrefix">
+
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/deamon_cover_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/deamon_profile_image"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cover"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_cover"
+        app:shapeAppearance="@style/ProfileImageCircle" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextAppearance.GotProfile.DisplayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Daemon Targaryen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_profile" />
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        style="@style/TextAppearance.GotProfile.Handle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="\@rougePrince"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_bio"
+        style="@style/TextAppearance.GotProfile.Bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/profile_bio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
+
+    <TextView
+        android:id="@+id/tv_stat_number"
+        style="@style/TextAppearance.GotProfile.StatNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="1,201"
+        app:layout_constraintEnd_toStartOf="@id/view_stick1"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bio" />
+
+
+    <TextView
+        android:id="@+id/tv_stat_label"
+        style="@style/TextAppearance.GotProfile.StatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posts"
+        app:layout_constraintEnd_toEndOf="@id/tv_stat_number"
+        app:layout_constraintStart_toStartOf="@id/tv_stat_number"
+        app:layout_constraintTop_toBottomOf="@id/tv_stat_number" />
+
+    <View
+        android:id="@+id/view_stick1"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@color/got_profile_text_primary"
+        app:layout_constraintBottom_toBottomOf="@id/tv_stat_label"
+        app:layout_constraintEnd_toStartOf="@id/tv_bannerman_number"
+        app:layout_constraintStart_toEndOf="@id/tv_stat_number"
+        app:layout_constraintTop_toTopOf="@id/tv_stat_number" />
+
+    <TextView
+        android:id="@+id/tv_bannerman_number"
+        style="@style/TextAppearance.GotProfile.StatNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12.4k"
+        app:layout_constraintEnd_toStartOf="@id/view_stick2"
+        app:layout_constraintStart_toEndOf="@id/view_stick1"
+        app:layout_constraintTop_toTopOf="@id/tv_stat_number" />
+
+    <TextView
+        style="@style/TextAppearance.GotProfile.StatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bannerman"
+        app:layout_constraintEnd_toEndOf="@id/tv_bannerman_number"
+        app:layout_constraintStart_toStartOf="@id/tv_bannerman_number"
+        app:layout_constraintTop_toBottomOf="@id/tv_bannerman_number" />
+
+    <View
+        android:id="@+id/view_stick2"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@color/got_profile_text_primary"
+        app:layout_constraintBottom_toBottomOf="@id/tv_stat_label"
+        app:layout_constraintEnd_toStartOf="@id/tv_allegiances_number"
+        app:layout_constraintStart_toEndOf="@id/tv_bannerman_number"
+        app:layout_constraintTop_toTopOf="@id/tv_stat_number" />
+
+    <TextView
+        android:id="@+id/tv_allegiances_number"
+        style="@style/TextAppearance.GotProfile.StatNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="941"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_stick2"
+        app:layout_constraintTop_toTopOf="@id/tv_stat_number" />
+
+    <TextView
+        style="@style/TextAppearance.GotProfile.StatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Allegiances"
+        app:layout_constraintEnd_toEndOf="@id/tv_allegiances_number"
+        app:layout_constraintStart_toStartOf="@id/tv_allegiances_number"
+        app:layout_constraintTop_toBottomOf="@id/tv_allegiances_number" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/got_profile_btn_bg"
+        android:text="Follow"
+        android:textColor="@color/got_profile_accent_link"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/person_add_icon"
+        app:iconTint="@color/got_profile_accent_link"
+        app:layout_constraintEnd_toStartOf="@id/btn_message"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_stat_label" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/got_profile_btn_bg"
+        android:drawablePadding="8dp"
+        android:text="Message"
+        android:textColor="@color/got_profile_accent_link"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/chat_icon"
+        app:iconTint="@color/got_profile_accent_link"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_follow"
+        app:layout_constraintTop_toTopOf="@id/btn_follow" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_follow"
+
+        android:layout_marginTop="16dp">
+
+        <include layout="@layout/layout_profile_tab"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

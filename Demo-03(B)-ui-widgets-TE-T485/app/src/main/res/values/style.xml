@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="circleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="curvedCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="TextAppearance.Targaryen.HeaderTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/cinzel_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/targaryen_white</item>
+<!--        <item name="android:lineHeight">28sp</item>-->
+    </style>
+
+    <style name="TextAppearance.Targaryen.Subtitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_extrabold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/targaryen_red_dark</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.15</item> </style>
+
+    <style name="TextAppearance.Targaryen.CardHeader" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_extrabold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/targaryen_red_bright</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.10</item> </style>
+
+    <style name="TextAppearance.Targaryen.InfoKey" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/targaryen_gray</item>
+    </style>
+
+    <style name="TextAppearance.Targaryen.InfoValue" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/targaryen_white</item>
+    </style>
+
+
+    <style name="TextAppearance.Stark.HeaderTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/cinzel_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/stark_white</item>
+    </style>
+
+    <style name="TextAppearance.Stark.Subtitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_extrabold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/stark_blue_bright</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.15</item>
+    </style>
+
+    <style name="TextAppearance.Stark.CardHeader" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_extrabold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/stark_blue_bright</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.10</item>
+    </style>
+
+    <style name="TextAppearance.Stark.InfoKey" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/stark_gray</item>
+    </style>
+
+    <style name="TextAppearance.Stark.InfoValue" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/stark_white</item>
+    </style>
+</resources>

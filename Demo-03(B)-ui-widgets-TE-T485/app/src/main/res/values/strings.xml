@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Demo 3B ui widgets</string>
+    <string name="description">Description</string>
+    <string name="description_content">
+        Forged in the fires of Old Valyria and tempered by the Doom, House Targaryen is a dynasty bound by blood, fire, and the fearsome might of dragons.Surviving the cataclysm that consumed their ancestral homeland, they crossed the Narrow Sea to conquer Westeros,uniting the Seven Kingdoms under a throne forged from the swords of their vanquished enemies.Though their centuries-long reign has been scarred by madness and devastating civil wars, their legacy remains absolute:they are the true blood of the dragon, ruling not by the grace of gods or men, but by the undisputed supremacy of the sky.</string>
+    <string name="description_content_stark">Descended from the First Men and the legendary Bran the Builder, House Stark is a dynasty carved from the ancient ice and granite of the North. For thousands of years, they have ruled from the formidable stronghold of Winterfell, weathering the harshest winters and guarding the realms of men against the dark terrors that lurk beyond the Wall. Bound by a deep, sacred connection to the old gods and the fierce direwolves of the wolfswood, the Starks are defined by unyielding honor, grim duty, and an enduring resilience. Through long summers and devastating wars, their ancient words remain both a steadfast vow and a chilling promise to all of Westeros: Winter is Coming.</string>
+    <string name="house_name">House Targaryen</string>
+    <string name="house_words"><![CDATA[Fire & Blood]]></string>
+    <string name="house_overview_title">House Overview</string>
+    <string name="origin">Origin</string>
+    <string name="origin_value">Old Valyria</string>
+    <string name="founded">Founded</string>
+    <string name="founded_value">144 BC (Dragon Stone)</string>
+    <string name="founder">Founder</string>
+    <string name="founder_value">Aenar Targaryen</string>
+    <string name="status">Status</string>
+    <string name="status_value">Ancient Great House</string>
+    <string name="seat">Seat</string>
+    <string name="seat_value">Dragon Stone / King\'s Landing</string>
+    <string name="region">Region</string>
+    <string name="region_value">Crown Lands</string>
+</resources>

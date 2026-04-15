@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="targaryen_bg_main">#000000</color>
+    <color name="targaryen_bg_card">#111111</color>
+    <color name="targaryen_card_stroke">#222222</color>
+
+    <color name="targaryen_white">#F2F2F2</color>
+    <color name="targaryen_gray">#888888</color>
+    <color name="targaryen_red_dark">#D84315</color>
+    <color name="targaryen_red_bright">#E64A19</color>
+
+    <color name="badge_red_text">#822222</color>
+    <color name="badge_red_bg">#33822222</color>
+
+
+    <color name="stark_bg_main">#0B1016</color>
+    <color name="stark_bg_card">#161C24</color>
+    <color name="stark_card_stroke">#252D3A</color>
+
+    <color name="stark_white">#E8EDF2</color>
+    <color name="stark_gray">#8B97A2</color>
+    <color name="stark_blue_dark">#3B5B78</color>
+    <color name="stark_blue_bright">#76A9D3</color>
+
+    <color name="badge_blue_text">#76A9D3</color>
+    <color name="badge_blue_bg">#3376A9D3</color>
+
+
+</resources>
