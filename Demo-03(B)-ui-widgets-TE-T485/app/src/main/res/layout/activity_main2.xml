@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2"
-    android:background="@color/targaryen_bg_main">
+    android:background="@color/targaryen_bg_main"
+    tools:context=".MainActivity2">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv2_cover_photo"
@@ -19,17 +19,18 @@
             app:shapeAppearanceOverlay="@style/curvedCard" />
 
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv2_profile_photo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_below="@id/iv2_cover_photo"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="-70dp"
-            android:importantForAccessibility="no"
-            android:scaleType="centerCrop"
-            android:src="@drawable/targaryen_sigil"
-            app:shapeAppearanceOverlay="@style/circleImageView" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv2_profile_photo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/iv2_cover_photo"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="-70dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/targaryen_sigil"
+        app:shapeAppearanceOverlay="@style/circleImageView"
+        tools:ignore="ImageContrastCheck" />
 
 
         <TextView
@@ -43,23 +44,23 @@
             android:maxLines="1"
             android:text="@string/house_name" />
 
-        <TextView
-            android:id="@+id/tv_house_words"
-            style="@style/TextAppearance.Targaryen.Subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_house_title"
-            android:layout_alignStart="@id/iv2_profile_photo"
-            android:text="@string/house_words"/>
+    <TextView
+        android:id="@+id/tv_house_words"
+        style="@style/TextAppearance.Targaryen.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_house_title"
+        android:layout_alignStart="@id/iv2_profile_photo"
+        android:text="@string/house_words" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_house_words"
-            android:layout_marginTop="8dp"
             android:layout_alignStart="@id/iv2_cover_photo"
             android:layout_alignEnd="@id/iv2_cover_photo"
+            android:layout_marginTop="8dp"
             android:backgroundTint="@color/targaryen_bg_card"
             app:strokeColor="@color/targaryen_card_stroke"
             app:strokeWidth="2dp">
@@ -93,8 +94,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/TextAppearance.Targaryen.InfoKey"
@@ -114,8 +115,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/TextAppearance.Targaryen.InfoKey"
@@ -134,8 +135,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/TextAppearance.Targaryen.InfoKey"
@@ -154,8 +155,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/TextAppearance.Targaryen.InfoKey"
@@ -174,8 +175,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/TextAppearance.Targaryen.InfoKey"
@@ -214,53 +215,54 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/card_info"
-        android:backgroundTint="@color/targaryen_bg_card"
-        app:strokeColor="@color/targaryen_card_stroke"
-        android:layout_marginTop="8dp"
-        android:layout_alignStart="@id/card_info"
-        android:layout_alignEnd="@id/card_info"
-        app:strokeWidth="2dp">
-
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/description_card1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="8dp">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_info"
+            android:layout_alignStart="@id/card_info"
+            android:layout_alignEnd="@id/card_info"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/targaryen_bg_card"
+            app:strokeColor="@color/targaryen_card_stroke"
+            app:strokeWidth="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
 
-                <View
-                    android:layout_width="2sp"
-                    android:layout_height="8dp"
-                    android:layout_marginEnd="4dp"
-                    android:background="@color/targaryen_red_bright" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="2sp"
+                        android:layout_height="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@color/targaryen_red_bright" />
+
+                    <TextView
+                        style="@style/TextAppearance.Targaryen.CardHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description" />
+                </LinearLayout>
 
                 <TextView
-                    style="@style/TextAppearance.Targaryen.CardHeader"
+                    style="@style/TextAppearance.Targaryen.InfoValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/description" />
+                    android:justificationMode="inter_word"
+                    android:text="@string/description_content"
+                    android:textAlignment="textStart"
+                    tools:targetApi="26" />
+
             </LinearLayout>
-
-            <TextView
-                style="@style/TextAppearance.Targaryen.InfoValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:justificationMode="inter_word"
-                android:text="@string/description_content"
-                android:textAlignment="textStart"
-                tools:targetApi="26" />
-
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

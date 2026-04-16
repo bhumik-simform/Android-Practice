@@ -9,8 +9,8 @@
 
     <color name="targaryen_white">#F2F2F2</color>
     <color name="targaryen_gray">#888888</color>
-    <color name="targaryen_red_dark">#822222</color>
-    <color name="targaryen_red_bright">#B22222</color>
+    <color name="targaryen_red_dark">#D84315</color>
+    <color name="targaryen_red_bright">#E64A19</color>
 
     <color name="badge_red_text">#822222</color>
     <color name="badge_red_bg">#33822222</color>
