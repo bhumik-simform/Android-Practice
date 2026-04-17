@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Demo 3B ui widgets"
 include(":app")
- 
+include(":character-profile")
