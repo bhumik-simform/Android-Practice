@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="got_profile_bg_main">#171A1D</color>
+    <color name="got_profile_bg_surface">#15202B</color>
+
+    <color name="got_profile_text_primary">#F7F9F9</color>
+    <color name="got_profile_text_secondary">#8B98A5</color>
+
+    <color name="got_profile_accent_link">#1D9BF0</color>
+    <color name="got_profile_accent_targaryen">#E25822</color> <color name="got_profile_divider">#2F3336</color>
+    <color name="got_profile_btn_bg">#273340</color>
 </resources>
