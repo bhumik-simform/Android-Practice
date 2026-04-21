@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Demo 3C recyclerview adapter</string>
+    <string name="os_name">iOS</string>
+    <string name="os_year">Founded: %s</string>
+    <string name="os_list">OS List</string>
+    <string name="icon">icon</string>
+    <string name="os_grid">OS Grid</string>
+    <string name="add">add</string>
+
+    <style name="element_text">Meow</style>
+
+    <!--  Dialog String Resources  -->
+    <string name="cancel_btn_text">Cancel</string>
+    <!-- For Add Item Dialog-->
+    <string name="dialog_text_add">Add Item</string>
+    <string name="name_hint_add">Add Name</string>
+    <string name="year_hint_add">Add Year</string>
+    <string name="modify_btn_text_add">Add</string>
+
+    <!-- For Add Item Dialog-->
+    <string name="dialog_text_edit">Edit Item</string>
+    <string name="name_hint">Edit Name</string>
+    <string name="year_hint">Edit Year</string>
+    <string name="modify_btn_text_edit">Edit</string>
+
+
+</resources>
