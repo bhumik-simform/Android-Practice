@@ -1,5 +1,6 @@
 package com.example.demo3crecyclerviewadapter
 
+import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
@@ -8,13 +9,14 @@ import android.widget.EditText
 import android.widget.ListView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class ListViewPracActivity : AppCompatActivity() {
 
-    val tutorials: MutableList<String>  = mutableListOf( "Kotlin", "Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "Go", "Rust", "Swift")
+    val tutorials: MutableList<String>  = mutableListOf( "Kotlin", "Swift", "Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "Go", "Rust", "PHP", "Dart", "Ruby", "SQL")
 
     lateinit var languageList: ListView
     lateinit var inputTextField: EditText
@@ -22,6 +24,7 @@ class ListViewPracActivity : AppCompatActivity() {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,21 +41,21 @@ class ListViewPracActivity : AppCompatActivity() {
         languageList.setAdapter(adapter)
 
 
-//        inputTextField = findViewById(R.id.edit_text_input)
-//
-//        addBtn = findViewById(R.id.btn_add)
-//        addBtn.setOnClickListener {
-//            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-//            val newLanguage = inputTextField.text.toString()
-//            if (!newLanguage.isEmpty()) {
-//                tutorials.add(newLanguage)
-//                adapter.notifyDataSetChanged()
-//                inputTextField.text.clear()
-//                imm.hideSoftInputFromWindow(it.windowToken,0)
-//            } else {
-//                Toast.makeText(this, "Please Enter Any Language", Toast.LENGTH_SHORT).show()
-//            }
-//        }
+        inputTextField = findViewById(R.id.edit_text_input)
+
+        addBtn = findViewById(R.id.btn_add)
+        addBtn.setOnClickListener {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            val newLanguage = inputTextField.text.toString()
+            if (!newLanguage.isEmpty()) {
+                tutorials.addFirst(newLanguage)
+                adapter.notifyDataSetChanged()
+                inputTextField.text.clear()
+                imm.hideSoftInputFromWindow(it.windowToken,0)
+            } else {
+                Toast.makeText(this, "Please Enter Any Language", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         languageList.setOnItemLongClickListener { _, _ , position, _ ->
             tutorials.removeAt(position)

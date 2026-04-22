@@ -3,6 +3,7 @@ package com.example.demo3crecyclerviewadapter
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,8 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerViewPracticeBtn = findViewById<Button>(R.id.btn_recycler_view_practice)
         recyclerViewPracticeBtn.setOnClickListener {
+            Toast.makeText(this,"Hello", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, RecyclerViewPracActivity::class.java)
             startActivity(intent)
         }
     }
 }
+
