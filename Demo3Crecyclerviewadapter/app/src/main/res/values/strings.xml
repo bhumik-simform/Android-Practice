@@ -3,6 +3,7 @@
     <string name="os_name">iOS</string>
     <string name="os_year">Founded: 2007</string>
     <string name="os_list">OS List</string>
+    <string name="icon">icon</string>
 
     <style name="element_text">Meow</style>
 </resources>

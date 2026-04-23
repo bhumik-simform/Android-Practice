@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo3CRecyclerviewAdapter">
         <activity
-            android:name=".RecyclerViewPracActivity"
+            android:name=".recycler.RecyclerViewPracActivity"
             android:exported="false" />
         <activity
             android:name=".ListViewPracActivity"

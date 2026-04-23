@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:focusable="true"
-    android:padding="8dp"
-    android:clickable="true">
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    tools:ignore="MissingConstraints"
+    android:background="@drawable/item_bg"
+    android:elevation="8dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:clipToOutline="true">
 
     <ImageView
         android:id="@+id/iv_os_icon"
@@ -23,6 +28,7 @@
         android:layout_marginStart="32dp"
         android:text="@string/os_name"
         android:textSize="32sp"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintStart_toEndOf="@id/iv_os_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/os_year"
+        android:textColor="?attr/colorOnSurfaceVariant"
         app:layout_constraintStart_toStartOf="@id/tv_os_name"
         app:layout_constraintTop_toBottomOf="@id/tv_os_name" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
