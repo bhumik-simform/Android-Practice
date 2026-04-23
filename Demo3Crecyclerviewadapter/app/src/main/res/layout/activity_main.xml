@@ -33,4 +33,12 @@
         android:layout_marginTop="16dp"
         android:text="Go to Recycler View Practice" />
 
+    <Button
+        android:id="@+id/btn_grid_view_practice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Go to Grid View Practice" />
+
+
 </LinearLayout>

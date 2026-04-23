@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo3CRecyclerviewAdapter">
         <activity
+            android:name=".grid.GridMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".recycler.RecyclerViewPracActivity"
             android:exported="false" />
         <activity

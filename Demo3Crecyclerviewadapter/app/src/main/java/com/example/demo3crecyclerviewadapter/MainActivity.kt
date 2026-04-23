@@ -3,11 +3,11 @@ package com.example.demo3crecyclerviewadapter
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.demo3crecyclerviewadapter.grid.GridMainActivity
 import com.example.demo3crecyclerviewadapter.recycler.RecyclerViewPracActivity
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +30,12 @@ class MainActivity : AppCompatActivity() {
         val recyclerViewPracticeBtn = findViewById<Button>(R.id.btn_recycler_view_practice)
         recyclerViewPracticeBtn.setOnClickListener {
             val intent = Intent(this, RecyclerViewPracActivity::class.java)
+            startActivity(intent)
+        }
+
+        val gridViewPracticeBtn = findViewById<Button>(R.id.btn_grid_view_practice)
+       gridViewPracticeBtn.setOnClickListener {
+            val intent = Intent(this, GridMainActivity::class.java)
             startActivity(intent)
         }
     }
