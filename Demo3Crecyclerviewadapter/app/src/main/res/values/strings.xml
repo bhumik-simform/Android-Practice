@@ -5,6 +5,7 @@
     <string name="os_list">OS List</string>
     <string name="icon">icon</string>
     <string name="os_grid">OS Grid</string>
+    <string name="add">add</string>
 
     <style name="element_text">Meow</style>
 </resources>

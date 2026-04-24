@@ -8,7 +8,7 @@ data class MyOS (
     val imgId: Int,
     val message: String
 )
-val osList = listOf(
+val osList = mutableListOf(
     MyOS("Android", "2008", R.drawable.ic_android,"Made by Google"),
     MyOS("iOS", "2007", R.drawable.ic_ios,"Made by Apple"),
     MyOS("Ubuntu", "2004", R.drawable.ic_ubuntu, "Made by Canonical"),
