@@ -2,7 +2,7 @@
     android:insetLeft="16dp"
     android:insetRight="16dp">
     <shape android:shape="rectangle">
-        <solid android:color="@color/white"/>
+        <solid android:color="?attr/colorSurface"/>
         <corners android:radius="16dp" />
     </shape>
 </inset>

@@ -8,7 +8,7 @@
     android:padding="16dp"
     tools:ignore="MissingConstraints"
     android:background="@drawable/bg_item"
-    android:elevation="8dp"
+    android:elevation="4dp"
     android:foreground="?attr/selectableItemBackground"
     android:clipToOutline="true">
 

@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -60,6 +59,29 @@ class RecyclerViewActivity: AppCompatActivity() {
         recyclerView.adapter = adapter
 //      recyclerView.addItemDecoration(DividerDecoration())
         recyclerView.addItemDecoration(SpacingDecoration(32))
+
+        val itemTouchHelper = ItemTouchHelper(object:
+        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.START) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+               return false
+            }
+
+            override fun onSwiped(
+                viewHolder: RecyclerView.ViewHolder,
+                direction: Int
+            ) {
+                val position = viewHolder.absoluteAdapterPosition
+                osDataList.removeAt(position)
+                adapter.notifyItemRemoved(position)
+                return
+            }
+        })
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
     }
 
     private fun setUpFab() {
@@ -113,14 +135,14 @@ class RecyclerViewActivity: AppCompatActivity() {
         val cancelBtn = dialog.findViewById<Button>(R.id.btn_cancel)
 
         if (mode== DialogMode.ADD) {
-            titleText.text = "Add Item"
-            modifyBtn.text = "Add"
+            titleText.setText(R.string.dialog_text_add)
+            modifyBtn.setText(R.string.modify_btn_text_add)
             ipName.hint = "Add Name"
             ipYear.hint = "Add Year"
 
         } else {
-            titleText.text = "Edit Item"
-            modifyBtn.text = "Edit"
+            titleText.setText(R.string.dialog_text_edit)
+            modifyBtn.setText(R.string.modify_btn_text_edit)
             ipName.hint = "Edit Name"
             ipYear.hint = "Edit Year"
             etName.setText(existingItem?.name)
