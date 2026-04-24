@@ -1,4 +1,4 @@
-package com.example.demo3crecyclerviewadapter
+package com.example.demo3crecyclerviewadapter.ui.listview
 
 import android.os.Build
 import android.os.Bundle
@@ -13,8 +13,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.demo3crecyclerviewadapter.R
 
-class ListViewPracActivity : AppCompatActivity() {
+class OsListActivity : AppCompatActivity() {
 
     val tutorials: MutableList<String>  = mutableListOf( "Kotlin", "Swift", "Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "Go", "Rust", "PHP", "Dart", "Ruby", "SQL")
 
@@ -28,7 +29,7 @@ class ListViewPracActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_list_view_prac)
+        setContentView(R.layout.activity_os_list)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -37,7 +38,11 @@ class ListViewPracActivity : AppCompatActivity() {
 
         languageList = findViewById(R.id.list)
 
-        val adapter: ArrayAdapter<String> = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, tutorials)
+        val adapter: ArrayAdapter<String> = ArrayAdapter(
+            this,
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            tutorials
+        )
         languageList.setAdapter(adapter)
 
 
@@ -62,7 +67,5 @@ class ListViewPracActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             true
         }
-
-
     }
 }

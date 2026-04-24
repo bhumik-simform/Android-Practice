@@ -1,4 +1,4 @@
-package com.example.demo3crecyclerviewadapter.recycler
+package com.example.demo3crecyclerviewadapter.ui.recycler
 
 import android.graphics.Canvas
 import android.graphics.Color

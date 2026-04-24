@@ -1,4 +1,4 @@
-package com.example.demo3crecyclerviewadapter.grid
+package com.example.demo3crecyclerviewadapter.ui.grid
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demo3crecyclerviewadapter.R
-import com.example.demo3crecyclerviewadapter.recycler.MyOS
+import com.example.demo3crecyclerviewadapter.model.OSModel
 
-class GridOsAdapter(private val list: List<MyOS>, private val onItemClick: (MyOS) -> Unit) :
+class GridOsAdapter(private val list: List<OSModel>, private val onItemClick: (OSModel) -> Unit) :
     RecyclerView.Adapter<GridOsAdapter.GridOsViewHolder>() {
     inner class GridOsViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val osImageView: ImageView = view.findViewById(R.id.iv_os_icon)
@@ -19,7 +19,7 @@ class GridOsAdapter(private val list: List<MyOS>, private val onItemClick: (MyOS
         val yearTextView: TextView = view.findViewById(R.id.tv_year)
 
         @SuppressLint("SetTextI18n")
-        fun bindData(item: MyOS) {
+        fun bindData(item: OSModel) {
             osImageView.setImageResource(item.imgId)
             osNameTextView.text = item.name
             yearTextView.text = "Founded: ${item.year}"
@@ -33,7 +33,7 @@ class GridOsAdapter(private val list: List<MyOS>, private val onItemClick: (MyOS
         parent: ViewGroup,
         viewType: Int
     ): GridOsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_os_grid, parent, false)
         return GridOsViewHolder(view)
     }
 

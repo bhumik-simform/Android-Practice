@@ -12,16 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo3CRecyclerviewAdapter">
         <activity
-            android:name=".grid.GridMainActivity"
+            android:name=".ui.grid.OsGridActivity"
             android:exported="false" />
         <activity
-            android:name=".recycler.RecyclerViewPracActivity"
+            android:name=".ui.recycler.RecyclerViewActivity"
+            android:exported="false"
+            tools:targetApi="35"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ui.listview.OsListActivity"
             android:exported="false" />
         <activity
-            android:name=".ListViewPracActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
