@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Demo 3C recyclerview adapter"
 include(":app")
+include(":pixelsettings")
