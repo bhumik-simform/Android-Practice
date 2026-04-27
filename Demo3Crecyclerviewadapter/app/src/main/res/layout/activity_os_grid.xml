@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.recycler.RecyclerViewPracActivity"
+    tools:context=".ui.recycler.RecyclerViewActivity"
     android:orientation="vertical"
     android:backgroundTint="?attr/colorOnBackground">
 
@@ -24,6 +24,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_os_grid"/>
 
 </LinearLayout>

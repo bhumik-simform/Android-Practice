@@ -17,8 +17,8 @@
         <activity
             android:name=".ui.recycler.RecyclerViewActivity"
             android:exported="false"
-            tools:targetApi="35"
-            tools:ignore="Instantiatable" />
+            tools:ignore="Instantiatable"
+            tools:targetApi="35" />
         <activity
             android:name=".ui.listview.OsListActivity"
             android:exported="false" />
