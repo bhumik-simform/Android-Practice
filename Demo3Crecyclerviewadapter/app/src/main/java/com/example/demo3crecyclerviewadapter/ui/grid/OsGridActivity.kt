@@ -24,9 +24,9 @@ class OsGridActivity : AppCompatActivity() {
 
         val gridView = findViewById<RecyclerView>(R.id.grid_view)
         gridView.layoutManager = GridLayoutManager(this, 2)
-        gridView.addItemDecoration(GridOsSpacingDecoration())
+        gridView.addItemDecoration(GridOsSpacingDecoration(2,16))
         gridView.adapter = GridOsAdapter(osDataList) { clickedItem ->
-            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Hello! ${clickedItem.name}", Toast.LENGTH_SHORT).show()
         }
     }
 }
