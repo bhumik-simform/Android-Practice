@@ -19,16 +19,19 @@ import com.example.demo3crecyclerviewadapter.R
 import com.example.demo3crecyclerviewadapter.data.osDataList
 import com.example.demo3crecyclerviewadapter.model.OSModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.util.Collections
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
-class RecyclerViewActivity: AppCompatActivity() {
+class RecyclerViewActivity : AppCompatActivity() {
 
     enum class DialogMode {
         ADD,
         EDIT
     }
+
     private lateinit var adapter: OsAdapter
 
     @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
@@ -60,14 +63,23 @@ class RecyclerViewActivity: AppCompatActivity() {
 //      recyclerView.addItemDecoration(DividerDecoration())
         recyclerView.addItemDecoration(SpacingDecoration(32))
 
-        val itemTouchHelper = ItemTouchHelper(object:
-        ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.START) {
+        val itemTouchHelper = ItemTouchHelper(object :
+            ItemTouchHelper.SimpleCallback(
+                ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+                ItemTouchHelper.START
+            ) {
+
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
-               return false
+                val from = viewHolder.absoluteAdapterPosition
+                val to = target.absoluteAdapterPosition
+
+                Collections.swap(osDataList, from, to)
+                adapter.notifyItemMoved(from, to)
+                return true
             }
 
             override fun onSwiped(
@@ -75,11 +87,21 @@ class RecyclerViewActivity: AppCompatActivity() {
                 direction: Int
             ) {
                 val position = viewHolder.absoluteAdapterPosition
+                val deletedItem = osDataList.elementAt(position)
                 osDataList.removeAt(position)
                 adapter.notifyItemRemoved(position)
+
+                Snackbar.make(recyclerView, "Item Deleted", Snackbar.LENGTH_LONG)
+                    .setAction("UNDO") {
+                        osDataList.add(position,deletedItem)
+                        adapter.notifyItemInserted(position)
+                    }
+                    .show()
+
                 return
             }
         })
+
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
     }
@@ -91,7 +113,7 @@ class RecyclerViewActivity: AppCompatActivity() {
         }
     }
 
-    private fun addData(name:String, year: String) {
+    private fun addData(name: String, year: String) {
         osDataList.addFirst(
             OSModel(
                 name = name,
@@ -102,7 +124,7 @@ class RecyclerViewActivity: AppCompatActivity() {
         adapter.notifyItemInserted(0)
     }
 
-    private fun updateData(name:String, year: String, position: Int) {
+    private fun updateData(name: String, year: String, position: Int) {
         val updatedItem = osDataList[position].copy(
             name = name,
             year = year
@@ -110,7 +132,6 @@ class RecyclerViewActivity: AppCompatActivity() {
         osDataList[position] = updatedItem
         adapter.notifyItemChanged(position)
     }
-
 
 
     private fun showOsDialog(
@@ -134,7 +155,7 @@ class RecyclerViewActivity: AppCompatActivity() {
         val modifyBtn = dialog.findViewById<Button>(R.id.btn_modify)
         val cancelBtn = dialog.findViewById<Button>(R.id.btn_cancel)
 
-        if (mode== DialogMode.ADD) {
+        if (mode == DialogMode.ADD) {
             titleText.setText(R.string.dialog_text_add)
             modifyBtn.setText(R.string.modify_btn_text_add)
             ipName.hint = "Add Name"
@@ -152,10 +173,10 @@ class RecyclerViewActivity: AppCompatActivity() {
         modifyBtn.setOnClickListener {
             val name = etName.text.toString()
             val year = etYear.text.toString()
-            if(mode== DialogMode.ADD) {
-                addData(name,year)
+            if (mode == DialogMode.ADD) {
+                addData(name, year)
             } else {
-                updateData(name,year,position?:0)
+                updateData(name, year, position ?: 0)
             }
             dialog.dismiss()
         }
