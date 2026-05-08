@@ -32,51 +32,50 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         setupButtons()
-        Log.d(tag,"Activity $activityId -> onCreate()")
+        Log.d(tag,"1-> onCreate()")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d(tag,"Activity $activityId -> onStart()")
+        Log.d(tag,"1-> onStart()")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(tag,"Activity $activityId -> onResume()")
+        Log.d(tag,"1-> onResume()")
         println()
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(tag,"Activity $activityId -> onPause()")
+        Log.d(tag,"1-> onPause()")
         println()
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.d(tag,"Activity $activityId -> onRestart()")
+        Log.d(tag,"1-> onRestart()")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(tag,"Activity $activityId -> onStop()")
+        Log.d(tag,"1-> onStop()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(tag,"Activity $activityId -> onDestroy()")
+        Log.d(tag,"1-> onDestroy()")
     }
 
 
     private fun setupButtons() {
-        activityButton = findViewById(R.id.btn_new_activity)
-        dialogButton = findViewById(R.id.btn_dialog)
 
-        activityButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+        findViewById<Button>(R.id.btn_new_activity).setOnClickListener {
+            startActivity(Intent(this, MainActivity2::class.java))
         }
 
-        dialogButton.setOnClickListener {
+        findViewById<Button>(R.id.btn_dialog)
+            .setOnClickListener {
             val dialog = Dialog(this)
             dialog.setContentView(R.layout.dialog_hello)
             dialog.window?.setLayout(
