@@ -1,16 +1,16 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
+    id("kotlin-parcelize")
 }
 
 android {
     namespace = "com.example.demo3dactivityintentfragment"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.demo3dactivityintentfragment"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"

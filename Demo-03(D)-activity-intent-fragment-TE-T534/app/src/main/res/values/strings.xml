@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Demo 3D activity intent fragment</string>
+    <string name="spice_level_emoji">%s</string>
+    <string name="spice_level_text"> %s</string>
 </resources>

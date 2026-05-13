@@ -1,4 +1,4 @@
-package com.example.demo3dactivityintentfragment
+package com.example.demo3dactivityintentfragment.ui
 
 import android.app.Dialog
 import android.content.Intent
@@ -10,18 +10,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.demo3dactivityintentfragment.R
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var activityButton: Button
-    private lateinit var dialogButton: Button
+
 
     private val tag = "LifeCycle"
-     companion object {
-         var activityCounter = 0
-     }
-
-    private var activityId = ++activityCounter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -85,5 +80,11 @@ class MainActivity : AppCompatActivity() {
             dialog.setCancelable(true)
             dialog.show()
         }
+
+        findViewById<Button>(R.id.btn_recycler_view).setOnClickListener {
+            Log.e("Button Clicked","CheckAfter this ")
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
     }
 }
+
