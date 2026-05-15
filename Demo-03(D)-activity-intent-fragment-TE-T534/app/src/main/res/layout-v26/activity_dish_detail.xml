@@ -14,7 +14,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#D6CBF3"
         android:padding="16dp"
         app:cardCornerRadius="14dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tv_dish_emoji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -89,69 +89,105 @@
 
 
     <LinearLayout
-        android:layout_marginTop="32dp"
-        android:gravity="center"
         android:id="@+id/linear_layout_calories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/linear_layout_rating"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear_layout_detail_tags"
-        app:layout_constraintEnd_toStartOf="@id/linear_layout_rating">
+        app:layout_constraintTop_toBottomOf="@id/linear_layout_detail_tags">
 
         <TextView
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:textSize="56sp"
             android:id="@+id/tv_calories_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#000"
+            android:textSize="56sp"
+            android:textStyle="bold"
             tools:text="680" />
 
         <TextView
-            android:textColor="#333"
-            android:textSize="18sp"
-            android:id="@+id/tv_calories_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/tv_calories_value"
-            app:layout_constraintTop_toBottomOf="@id/tv_calories_value"
-            tools:text="Calories" />
+            android:text="@string/dish_detail_tv_calories"
+            android:textColor="#333"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:gravity="center"
         android:id="@+id/linear_layout_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/linear_layout_calories"
         app:layout_constraintTop_toTopOf="@id/linear_layout_calories">
 
         <TextView
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:textSize="56sp"
             android:id="@+id/tv_rating_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="56sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_calories_value"
-            app:layout_constraintTop_toTopOf="@id/tv_calories_value"
             tools:text="4.8" />
 
         <TextView
-            android:id="@+id/tv_rating_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/tv_rating_value"
-            app:layout_constraintTop_toBottomOf="@id/tv_rating_value"
-            tools:text="Rating" />
+            android:text="@string/dish_detail_tv_rating"
+            android:textColor="#333"
+            android:textSize="18sp" />
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="14dp"
+        app:layout_constraintEnd_toEndOf="@id/cv_dish_emoji"
+        app:layout_constraintStart_toStartOf="@id/cv_dish_emoji"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout_calories">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dish_detail_tv_description"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_dish_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:justificationMode="inter_word"
+                tools:text="Pork spare ribs slow-smoked for hours over hickory or applewood, glazed in a tangy barbecue sauce. The centrepiece of Southern American pit culture." />
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/tv_know_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:text="know more"
+                android:textColorLink="#002FFF"
+                android:textColorHighlight="#330000FF"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

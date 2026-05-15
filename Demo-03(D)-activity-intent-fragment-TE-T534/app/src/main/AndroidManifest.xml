@@ -13,7 +13,8 @@
         android:theme="@style/Theme.Demo3DActivityIntentFragment">
         <activity
             android:name=".ui.DishDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            tools:targetApi="33" />
         <activity
             android:name=".ui.HomeActivity"
             android:exported="false" />

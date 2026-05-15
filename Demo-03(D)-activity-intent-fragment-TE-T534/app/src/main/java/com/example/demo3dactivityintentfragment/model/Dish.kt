@@ -1,10 +1,11 @@
 package com.example.demo3dactivityintentfragment.model
-import allCountries
+import com.example.demo3dactivityintentfragment.data.allCountries
 import android.os.Parcelable
 import com.example.demo3dactivityintentfragment.enums.DishType
 import com.example.demo3dactivityintentfragment.enums.SpiceLevel
 import java.util.UUID
 import kotlinx.parcelize.Parcelize
+import java.net.URL
 
 @Parcelize
 data class Dish(
@@ -17,7 +18,8 @@ data class Dish(
     val description: String,
     val rating: Double,         // 1.0 – 5.0
     val calories: Int,          // kcal per serving
-    val color: Int
+    val color: Int,
+    val url: String
 ): Parcelable {
     /// Resolves the Country object from CountryData
     val country: Country?

@@ -2,4 +2,7 @@
     <string name="app_name">Demo 3D activity intent fragment</string>
     <string name="spice_level_emoji">%s</string>
     <string name="spice_level_text"> %s</string>
+    <string name="dish_detail_tv_calories">Calories</string>
+    <string name="dish_detail_tv_rating">Rating</string>
+    <string name="dish_detail_tv_description">Description</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.demo3dactivityintentfragment.adapater
 
+import android.content.res.ColorStateList
 import com.example.demo3dactivityintentfragment.model.Dish
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,7 @@ class DishAdapter(private val dishData: List<Dish>, private val onItemClick: (Di
             dishEmojiTextView.text = dish.emoji
             dishNameTextView.text = dish.name
             dishCountryTextView.text = dish.country?.name
-            dishTypeMarkView.setBackgroundColor(dish.type.colorCode())
+            dishTypeMarkView.backgroundTintList = ColorStateList.valueOf(dish.type.colorCode())
             dishTypeTextView.text = dish.type.displayName
             dishSpiceLevelTextView.text = dish.spiceLevel.label
         }

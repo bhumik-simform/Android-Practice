@@ -1,14 +1,6 @@
+package com.example.demo3dactivityintentfragment.data
+
 import android.graphics.Color
-import com.example.demo3dactivityintentfragment.data.idChina
-import com.example.demo3dactivityintentfragment.data.idFrance
-import com.example.demo3dactivityintentfragment.data.idGreece
-import com.example.demo3dactivityintentfragment.data.idIndia
-import com.example.demo3dactivityintentfragment.data.idItaly
-import com.example.demo3dactivityintentfragment.data.idJapan
-import com.example.demo3dactivityintentfragment.data.idMexico
-import com.example.demo3dactivityintentfragment.data.idSpain
-import com.example.demo3dactivityintentfragment.data.idThailand
-import com.example.demo3dactivityintentfragment.data.idUSA
 import com.example.demo3dactivityintentfragment.model.Country
 
 val allCountries = listOf(
