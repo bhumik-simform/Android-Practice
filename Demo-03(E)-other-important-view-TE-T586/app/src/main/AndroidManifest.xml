@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo3EOtherImportantViews">
         <activity
+            android:name=".CollapseAppBarActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

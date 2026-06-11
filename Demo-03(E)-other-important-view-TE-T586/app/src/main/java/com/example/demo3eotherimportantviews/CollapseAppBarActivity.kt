@@ -1,44 +1,26 @@
 package com.example.demo3eotherimportantviews
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.demo3eotherimportantviews.databinding.ActivityMainBinding
+import com.example.demo3eotherimportantviews.databinding.ActivityCollapseAppBarBinding
 
-class MainActivity : AppCompatActivity() {
+class CollapseAppBarActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityCollapseAppBarBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityCollapseAppBarBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        var count = 0
-
-        binding.btnInc.setOnClickListener {
-            count++
-            binding.result.text = count.toString()
-        }
-
-        binding.btnDec.setOnClickListener {
-            count--
-            binding.result.text = count.toString()
-        }
-
-        binding.btnCollapsing.setOnClickListener {
-            startActivity(Intent(this, CollapseAppBarActivity :: class.java))
-        }
+        println(binding.collapsingToolbar.title)
     }
 }
