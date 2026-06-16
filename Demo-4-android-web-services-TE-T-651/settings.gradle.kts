@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Demo 4 Android(Web services"
+rootProject.name = "Demo 4 Android Web services"
 include(":app")
