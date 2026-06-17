@@ -40,7 +40,51 @@ class TodoHomeActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        viewModel.uiState.observe(this) {
+
+        viewModel.loadingState.observe(this) { isLoading ->
+            Log.d("LoadingState","Loading State Called")
+                if (isLoading) {
+                    binding.progressCircular.visibility = View.VISIBLE
+                    Log.d("LoadingState","It is loading")
+                }
+                else {
+                    binding.progressCircular.visibility = View.GONE
+                    Log.d("LoadingState","It is not loading")
+                }
+
+            binding.rvTodoList.visibility =
+                if (isLoading) View.GONE
+                else View.VISIBLE
+        }
+
+        viewModel.tasks.observe(this) {
+            adapter.submitList(it)
+        }
+
+        viewModel.onError.observe(this) { errorMessage ->
+            if (errorMessage.isNotEmpty()) {
+                Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupRecyclerView() {
+
+        val itemOnClick: (TaskModel) -> Unit = { item ->
+            viewModel.toggleStatus(item)
+        }
+
+        adapter = TaskListAdapter(itemOnClick)
+        binding.rvTodoList.adapter = adapter
+        binding.rvTodoList.addItemDecoration(TaskListDecor(32))
+        binding.rvTodoList.layoutManager = LinearLayoutManager(this)
+    }
+
+}
+
+
+/*
+viewModel.uiState.observe(this) {
             when(it) {
                 is TodoHomeUiState.IsLoading -> {
                     binding.rvTodoList.visibility = View.GONE
@@ -59,18 +103,4 @@ class TodoHomeActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun setupRecyclerView() {
-
-        val itemOnClick: (TaskModel)-> Unit = { item ->
-            viewModel.toggleStatus(item)
-        }
-
-        adapter = TaskListAdapter(itemOnClick)
-        binding.rvTodoList.adapter = adapter
-        binding.rvTodoList.addItemDecoration(TaskListDecor(32))
-        binding.rvTodoList.layoutManager = LinearLayoutManager(this)
-    }
-
-}
+*/

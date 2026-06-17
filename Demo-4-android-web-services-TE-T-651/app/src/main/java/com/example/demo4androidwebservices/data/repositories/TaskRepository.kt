@@ -12,4 +12,8 @@ class TaskRepository {
         return apiService.fetchTasks().sortedBy { it.id }
     }
 
+    suspend fun toggleStatus(taskId: Int, currentStatus: Boolean): TaskModel {
+        val updatedStatus = mapOf("completed" to currentStatus)
+        return  apiService.toggleTasks(taskId, updatedStatus)
+    }
 }
