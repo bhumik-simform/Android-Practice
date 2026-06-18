@@ -72,7 +72,7 @@ class TaskViewModel : ViewModel() {
         }
     }
 
-    fun addTask() {
+    fun addTask(userId: Int, taskTitle: String) {
 
     }
 }

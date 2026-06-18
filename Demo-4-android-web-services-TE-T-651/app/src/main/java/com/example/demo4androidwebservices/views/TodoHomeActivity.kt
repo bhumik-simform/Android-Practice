@@ -1,8 +1,12 @@
 package com.example.demo4androidwebservices.views
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demo4androidwebservices.R
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ActivityTodoHomeBinding
+import com.example.demo4androidwebservices.databinding.DialogAddTaskBinding
 import com.example.demo4androidwebservices.viewModels.TaskViewModel
 import okhttp3.internal.cache.DiskLruCache
 
@@ -37,6 +42,7 @@ class TodoHomeActivity : AppCompatActivity() {
         viewModel.fetchTasks()
         setupObserver()
         setupRecyclerView()
+        setupOnclick()
     }
 
     private fun setupObserver() {
@@ -70,11 +76,87 @@ class TodoHomeActivity : AppCompatActivity() {
         }
 
         adapter = TaskListAdapter(itemOnClick)
+
         binding.rvTodoList.adapter = adapter
         binding.rvTodoList.addItemDecoration(TaskListDecor(32))
         binding.rvTodoList.layoutManager = LinearLayoutManager(this)
     }
 
+    private fun setupOnclick() {
+        binding.fabAddItem.setOnClickListener {
+            showAddTaskDialog()
+        }
+    }
+
+    private fun showAddTaskDialog() {
+
+        val bindingDialog = DialogAddTaskBinding.inflate(layoutInflater)
+
+        val dialog = Dialog(this)
+        dialog.setContentView(bindingDialog.root)
+
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        dialog.window?.setBackgroundDrawableResource(R.drawable.bg_dialog)
+
+        lateinit var userId: String
+        lateinit var taskTitle: String
+
+        bindingDialog.editTextId.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                userId = bindingDialog.editTextId.text.toString()
+                if (userId.isEmpty()) {
+                    bindingDialog.editTextId.error = "Enter User Id"
+                } else {
+                    if (!userId.all { it.isDigit() }) {
+                        bindingDialog.editTextId.error = "Add appropriate id"
+                    } else {
+                        userId.toDouble()
+                        bindingDialog.editTextId.error = null
+                        bindingDialog.editTextTitle.requestFocus()
+                    }
+                }
+                true
+            } else {
+                false
+            }
+        }
+
+        bindingDialog.editTextTitle.setOnEditorActionListener { view, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                taskTitle = bindingDialog.editTextTitle.text.toString()
+                if (taskTitle.isEmpty()) {
+                    bindingDialog.editTextTitle.error = "Add task title"
+                } else {
+                    bindingDialog.editTextTitle.error = null
+
+                    val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(view.windowToken, 0)
+                }
+                true
+            } else {
+                false
+            }
+        }
+
+        bindingDialog.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        bindingDialog.btnAdd.setOnClickListener {
+            dialog.dismiss()
+            viewModel.addTask(userId.toInt(), taskTitle)
+        }
+
+
+        bindingDialog.editTextId.requestFocus()
+
+        dialog.setCancelable(false)
+        dialog.show()
+    }
 }
 
 
