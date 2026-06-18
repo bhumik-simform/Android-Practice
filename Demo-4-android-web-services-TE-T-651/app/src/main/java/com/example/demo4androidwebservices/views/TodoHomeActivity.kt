@@ -2,13 +2,19 @@ package com.example.demo4androidwebservices.views
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +22,7 @@ import com.example.demo4androidwebservices.R
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ActivityTodoHomeBinding
 import com.example.demo4androidwebservices.databinding.DialogAddTaskBinding
+import com.example.demo4androidwebservices.databinding.DialogFilterTaskBinding
 import com.example.demo4androidwebservices.viewModels.TaskViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -38,10 +45,35 @@ class TodoHomeActivity : AppCompatActivity() {
             insets
         }
 
+        setupMenu()
         viewModel.fetchTasks()
         setupObserver()
         setupRecyclerView()
         setupOnclick()
+    }
+
+
+
+    private fun setupMenu() {
+
+        this.setSupportActionBar(binding.toolBarTodoHome)
+
+        val menuHost: MenuHost = this
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.menu_todo_home,menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+               return  when(menuItem.itemId) {
+                   R.id.action_filter -> {
+                       showFilterDialog()
+                       true
+                   }
+                   else -> false
+               }
+            }
+        })
     }
 
     private fun setupObserver() {
@@ -168,6 +200,42 @@ class TodoHomeActivity : AppCompatActivity() {
 
 
         bindingDialog.editTextId.requestFocus()
+
+        dialog.setCancelable(false)
+        dialog.show()
+    }
+
+
+    private fun showFilterDialog() {
+
+        val dialogBinding = DialogFilterTaskBinding.inflate(layoutInflater)
+
+        val dialog = Dialog(this)
+        dialog.setContentView(dialogBinding.root)
+
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        dialog.window?.setBackgroundDrawableResource(R.drawable.bg_dialog)
+
+        val userIds = Array(11) { if (it==0) "All Users" else it.toString() }
+
+        val idAdapter = ArrayAdapter<String>(this,R.layout.item_user_id_drop_down, userIds)
+
+        dialogBinding.autoComTvUserId.setAdapter(idAdapter)
+
+        dialogBinding.autoComTvUserId.setText(dialogBinding.autoComTvUserId.adapter.getItem(0).toString(),false)
+
+        dialogBinding.autoComTvUserId.setOnItemClickListener { parent, _, position, _ ->
+            val id = parent.getItemAtPosition(position).toString()
+        }
+
+
+        dialogBinding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
 
         dialog.setCancelable(false)
         dialog.show()

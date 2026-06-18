@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">Demo 4 Android Web services</string>
+
+
+<!--    Dialogs   -->
+
+    <string name="dialog_btn_cancel">Cancel</string>
+
+    <!--    Add task Dialog   -->
     <string name="task_dialog_title_add">Add Task</string>
     <string name="task_dialog_hint_user_id">Add User Id</string>
     <string name="task_dialog_hint_task_title">Add Task Title</string>
-    <string name="task_dialog_btn_cancel">Cancel</string>
     <string name="task_dialog_btn_add">Add Task</string>
+
+    <!--    Filter Tasks    -->
+    <string name="task_dialog_title_filter">Filter your tasks</string>
+    <string name="filter_dialog_hint_user_id">Select User Id</string>
+    <string name="filter_dialog_rb_com_lab">Completed</string>
+    <string name="filter_dialog_rb_in_com_lab">Incompleted</string>
+    <string name="dialog_btn_apply">Apply Filter</string>
+
 </resources>

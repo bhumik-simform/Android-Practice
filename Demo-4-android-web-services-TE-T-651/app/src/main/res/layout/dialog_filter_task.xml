@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        style="@style/TextAppearance.Material3.TitleLarge.Emphasized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_dialog_title_filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:labelFor="@id/auto_com_tv_user_id"
+        android:id="@+id/tv_user_id"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_dialog_hint_user_id"
+        app:layout_constraintBottom_toBottomOf="@id/text_input_user_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_input_user_id" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_user_id"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/filter_dialog_hint_user_id"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_user_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_dialog_title">
+
+        <AutoCompleteTextView
+            tools:text="All"
+            android:id="@+id/auto_com_tv_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_select_status"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Status"
+        app:layout_constraintBottom_toBottomOf="@id/radio_grp_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radio_grp_status" />
+
+    <RadioGroup
+        android:checkedButton="@id/radio_btn_com"
+        android:id="@+id/radio_grp_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_input_user_id"
+        app:layout_constraintTop_toBottomOf="@id/text_input_user_id">
+
+        <RadioButton
+            android:id="@+id/radio_btn_com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/filter_dialog_rb_com_lab" />
+
+        <RadioButton
+            android:id="@+id/radio_btn_inCom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/filter_dialog_rb_in_com_lab"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/dialog_btn_cancel"
+        app:layout_constraintEnd_toStartOf="@id/btn_apply_filter"
+        app:layout_constraintTop_toBottomOf="@id/radio_grp_status" />
+
+    <Button
+        android:id="@+id/btn_apply_filter"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_btn_apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_cancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
