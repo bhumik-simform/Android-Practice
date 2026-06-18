@@ -5,9 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.demo4androidwebservices.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.data.repositories.TaskRepository
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 
 class TaskViewModel : ViewModel() {
@@ -57,31 +59,51 @@ class TaskViewModel : ViewModel() {
         viewModelScope.launch {
 
             try {
-                val newTask =
-                    repository.toggleStatus(taskId = task.id, currentStatus = !task.completed)
-                Log.d("Meow", "Response: $newTask")
-
+                repository.toggleStatus(taskId = task.id, currentStatus = !task.completed)
             } catch (e: Exception) {
 
                 val failedList = _tasks.value?.toMutableList() ?: return@launch
                 failedList[idx] = task
                 _tasks.value = failedList
                 _onError.value = e.message.toString()
-                Log.e("Meow",e.message.toString())
             }
         }
     }
 
     fun addTask(userId: Int, taskTitle: String) {
 
+        val currentList = _tasks.value?.toMutableList() ?: return
+        val newTaskRequest = CreateTaskModel(userId,taskTitle)
+
+        Log.d("MyApi","$newTaskRequest")
+
+        _loadingState.value = true
+
+        viewModelScope.launch {
+            try {
+
+                val newTask = repository.addTask(newTaskRequest)
+                Log.d("MyApi","$newTask")
+                currentList.add(newTask)
+                _tasks.value = currentList
+                _loadingState.value = false
+
+            } catch (e: HttpException) {
+
+                Log.e("MyApi","${e.code()}")
+                Log.e("MyApi",e.message.toString())
+
+                _onError.value = e.message.toString()
+                _loadingState.value = false
+            }
+
+
+        }
+
+
     }
 }
 
-//            Log.d("MyToggle", "Clicked Item: $task")
-
-//            Log.d("MyToggle", "Current Item Status: $currentStatus")
-//            Log.d("MyToggle", "Before in list ${ _tasks.value?.elementAt(task.id) }")
-//            Log.d("MyToggle", "After in list: ${ _tasks.value?.elementAt(task.id) }")
 
 /*
  private val repository = TaskRepository()

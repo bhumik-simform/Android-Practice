@@ -2,7 +2,6 @@ package com.example.demo4androidwebservices.views
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -18,7 +17,6 @@ import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ActivityTodoHomeBinding
 import com.example.demo4androidwebservices.databinding.DialogAddTaskBinding
 import com.example.demo4androidwebservices.viewModels.TaskViewModel
-import okhttp3.internal.cache.DiskLruCache
 
 class TodoHomeActivity : AppCompatActivity() {
 
@@ -102,21 +100,25 @@ class TodoHomeActivity : AppCompatActivity() {
 
         dialog.window?.setBackgroundDrawableResource(R.drawable.bg_dialog)
 
-        lateinit var userId: String
-        lateinit var taskTitle: String
+        val userId: String by lazy {
+            bindingDialog.editTextId.text.toString()
+        }
+
+        val taskTitle: String by lazy {
+           bindingDialog.editTextTitle.text.toString()
+        }
 
         bindingDialog.editTextId.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_NEXT) {
-                userId = bindingDialog.editTextId.text.toString()
                 if (userId.isEmpty()) {
                     bindingDialog.editTextId.error = "Enter User Id"
                 } else {
-                    if (!userId.all { it.isDigit() }) {
-                        bindingDialog.editTextId.error = "Add appropriate id"
-                    } else {
+                    if (userId.toInt() in 1..<11) {
                         userId.toDouble()
                         bindingDialog.editTextId.error = null
                         bindingDialog.editTextTitle.requestFocus()
+                    } else {
+                        bindingDialog.editTextId.error = "Add appropriate id"
                     }
                 }
                 true
@@ -127,7 +129,6 @@ class TodoHomeActivity : AppCompatActivity() {
 
         bindingDialog.editTextTitle.setOnEditorActionListener { view, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                taskTitle = bindingDialog.editTextTitle.text.toString()
                 if (taskTitle.isEmpty()) {
                     bindingDialog.editTextTitle.error = "Add task title"
                 } else {

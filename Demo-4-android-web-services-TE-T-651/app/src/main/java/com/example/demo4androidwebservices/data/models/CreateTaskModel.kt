@@ -1,12 +1,9 @@
 package com.example.demo4androidwebservices.data.models
 
 import kotlinx.serialization.Serializable
-import okhttp3.Response
 
 @Serializable
-data class TaskModel(
-    val id: Int,
+data class CreateTaskModel(
     val userId: Int,
-    val title: String,
-    var completed: Boolean = false
+    val title: String
 )

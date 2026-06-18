@@ -1,5 +1,6 @@
 package com.example.demo4androidwebservices.data.repositories
 
+import com.example.demo4androidwebservices.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.data.networkServices.RetrofitClient
 
@@ -16,4 +17,9 @@ class TaskRepository {
         val updatedStatus = mapOf("completed" to currentStatus)
         return  apiService.toggleTasks(taskId, updatedStatus)
     }
+
+     suspend fun addTask(requestedTask: CreateTaskModel): TaskModel {
+         return apiService.addNewTask(requestedTask)
+     }
+
 }
