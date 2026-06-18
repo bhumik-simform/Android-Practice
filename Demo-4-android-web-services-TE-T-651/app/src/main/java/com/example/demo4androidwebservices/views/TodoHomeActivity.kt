@@ -17,6 +17,7 @@ import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ActivityTodoHomeBinding
 import com.example.demo4androidwebservices.databinding.DialogAddTaskBinding
 import com.example.demo4androidwebservices.viewModels.TaskViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class TodoHomeActivity : AppCompatActivity() {
 
@@ -47,9 +48,9 @@ class TodoHomeActivity : AppCompatActivity() {
 
         viewModel.loadingState.observe(this) { isLoading ->
 
-            binding.progressCircular.visibility
-            if (isLoading) View.VISIBLE
-            else View.GONE
+            binding.progressCircular.visibility =
+                if (isLoading) View.VISIBLE
+                else View.GONE
 
             binding.rvTodoList.visibility =
                 if (isLoading) View.GONE
@@ -73,11 +74,24 @@ class TodoHomeActivity : AppCompatActivity() {
             viewModel.toggleStatus(item)
         }
 
+        val itemSwipe: (Int) -> Unit = { position ->
+
+            val deletingTask = adapter.currentList.elementAt(position)
+
+            viewModel.deleteTask(deletingTask)
+
+            Snackbar.make(binding.rvTodoList, "Delete mistakenly!!", Snackbar.LENGTH_SHORT)
+                .setAction("Undo it") {
+                    viewModel.undoDeleteTask(position, deletingTask)
+                }
+                .show()
+        }
         adapter = TaskListAdapter(itemOnClick)
 
         binding.rvTodoList.adapter = adapter
         binding.rvTodoList.addItemDecoration(TaskListDecor(32))
         binding.rvTodoList.layoutManager = LinearLayoutManager(this)
+        SwipeToDeleteCallback.addGesture(binding.rvTodoList, itemSwipe)
     }
 
     private fun setupOnclick() {
@@ -105,7 +119,7 @@ class TodoHomeActivity : AppCompatActivity() {
         }
 
         val taskTitle: String by lazy {
-           bindingDialog.editTextTitle.text.toString()
+            bindingDialog.editTextTitle.text.toString()
         }
 
         bindingDialog.editTextId.setOnEditorActionListener { _, actionId, _ ->

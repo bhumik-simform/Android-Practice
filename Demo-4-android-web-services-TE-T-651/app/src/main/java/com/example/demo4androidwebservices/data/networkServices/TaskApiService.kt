@@ -3,6 +3,7 @@ package com.example.demo4androidwebservices.data.networkServices
 import com.example.demo4androidwebservices.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.data.models.TaskModel
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
@@ -18,4 +19,7 @@ interface TaskApiService {
 
     @POST("todos")
     suspend fun addNewTask(@Body request: CreateTaskModel): TaskModel
+
+    @DELETE("todos/{id}")
+    suspend fun deleteTask(@Path("id")taskId: Int)
 }

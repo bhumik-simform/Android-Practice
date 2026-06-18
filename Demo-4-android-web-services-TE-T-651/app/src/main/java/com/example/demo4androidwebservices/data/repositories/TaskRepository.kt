@@ -1,8 +1,10 @@
 package com.example.demo4androidwebservices.data.repositories
 
+import android.util.Log
 import com.example.demo4androidwebservices.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.data.networkServices.RetrofitClient
+import kotlinx.coroutines.runBlocking
 
 
 class TaskRepository {
@@ -15,11 +17,15 @@ class TaskRepository {
 
     suspend fun toggleStatus(taskId: Int, currentStatus: Boolean): TaskModel {
         val updatedStatus = mapOf("completed" to currentStatus)
-        return  apiService.toggleTasks(taskId, updatedStatus)
+        return apiService.toggleTasks(taskId, updatedStatus)
     }
 
-     suspend fun addTask(requestedTask: CreateTaskModel): TaskModel {
-         return apiService.addNewTask(requestedTask)
-     }
+    suspend fun addTask(requestedTask: CreateTaskModel): TaskModel {
+        return apiService.addNewTask(requestedTask)
+    }
+
+    suspend fun deleteTask(taskId: Int) {
+        apiService.deleteTask(taskId)
+    }
 
 }

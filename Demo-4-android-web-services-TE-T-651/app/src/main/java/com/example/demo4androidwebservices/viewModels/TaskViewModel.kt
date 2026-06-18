@@ -8,8 +8,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.demo4androidwebservices.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.data.repositories.TaskRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import kotlin.time.Duration.Companion.milliseconds
 
 
 class TaskViewModel : ViewModel() {
@@ -73,9 +75,9 @@ class TaskViewModel : ViewModel() {
     fun addTask(userId: Int, taskTitle: String) {
 
         val currentList = _tasks.value?.toMutableList() ?: return
-        val newTaskRequest = CreateTaskModel(userId,taskTitle)
+        val newTaskRequest = CreateTaskModel(userId, taskTitle)
 
-        Log.d("MyApi","$newTaskRequest")
+        Log.d("MyApi", "$newTaskRequest")
 
         _loadingState.value = true
 
@@ -83,15 +85,15 @@ class TaskViewModel : ViewModel() {
             try {
 
                 val newTask = repository.addTask(newTaskRequest)
-                Log.d("MyApi","$newTask")
+                Log.d("MyApi", "$newTask")
                 currentList.add(newTask)
                 _tasks.value = currentList
                 _loadingState.value = false
 
             } catch (e: HttpException) {
 
-                Log.e("MyApi","${e.code()}")
-                Log.e("MyApi",e.message.toString())
+                Log.e("MyApi", "${e.code()}")
+                Log.e("MyApi", e.message.toString())
 
                 _onError.value = e.message.toString()
                 _loadingState.value = false
@@ -99,8 +101,38 @@ class TaskViewModel : ViewModel() {
 
 
         }
+    }
 
+    fun deleteTask(deletingTask: TaskModel) {
 
+        val currentList = _tasks.value?.toMutableList() ?: return
+
+        val idx = currentList.indexOfFirst { it.id == deletingTask.id }
+        if (idx == -1) return
+
+        currentList.removeAt(idx)
+        _tasks.value = currentList
+
+        viewModelScope.launch {
+            delay(2250.milliseconds)
+
+            try {
+                repository.deleteTask(deletingTask.id)
+            } catch (e: Exception) {
+
+                currentList.add(idx, deletingTask)
+                _tasks.value = currentList
+
+                _onError.value = e.message.toString()
+            }
+        }
+
+    }
+
+    fun undoDeleteTask(position: Int, task: TaskModel) {
+        val currentList = _tasks.value?.toMutableList() ?: return
+        currentList.add(position, task)
+        _tasks.value = currentList
     }
 }
 
