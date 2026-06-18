@@ -26,17 +26,17 @@ class TaskViewModel : ViewModel() {
         get() = _onError
 
     fun fetchTasks() {
+
+        _loadingState.value = true
+        _onError.value = ""
+
         viewModelScope.launch {
-
-            _loadingState.value = true
-            _onError.value = ""
-
             try {
-                _loadingState.value = false
                 _tasks.value = repository.fetchTasks()
-            } catch (e: Exception) {
                 _loadingState.value = false
+            } catch (e: Exception) {
                 _onError.value = e.message.toString()
+                _loadingState.value = false
             }
         }
     }

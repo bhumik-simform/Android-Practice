@@ -13,7 +13,7 @@ import com.example.demo4androidwebservices.R
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ActivityTodoHomeBinding
 import com.example.demo4androidwebservices.viewModels.TaskViewModel
-import com.example.demo4androidwebservices.viewModels.TodoHomeUiState
+import okhttp3.internal.cache.DiskLruCache
 
 class TodoHomeActivity : AppCompatActivity() {
 
@@ -42,15 +42,10 @@ class TodoHomeActivity : AppCompatActivity() {
     private fun setupObserver() {
 
         viewModel.loadingState.observe(this) { isLoading ->
-            Log.d("LoadingState","Loading State Called")
-                if (isLoading) {
-                    binding.progressCircular.visibility = View.VISIBLE
-                    Log.d("LoadingState","It is loading")
-                }
-                else {
-                    binding.progressCircular.visibility = View.GONE
-                    Log.d("LoadingState","It is not loading")
-                }
+
+            binding.progressCircular.visibility
+            if (isLoading) View.VISIBLE
+            else View.GONE
 
             binding.rvTodoList.visibility =
                 if (isLoading) View.GONE
