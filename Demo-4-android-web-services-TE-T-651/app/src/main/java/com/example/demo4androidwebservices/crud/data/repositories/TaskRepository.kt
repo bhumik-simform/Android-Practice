@@ -2,7 +2,7 @@ package com.example.demo4androidwebservices.crud.data.repositories
 
 import com.example.demo4androidwebservices.crud.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.crud.data.models.TaskModel
-import com.example.demo4androidwebservices.crud.data.networkServices.RetrofitClient
+import com.example.demo4androidwebservices.networkServices.RetrofitClient
 
 
 class TaskRepository {

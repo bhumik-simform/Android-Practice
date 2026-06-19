@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.crud.data.networkServices
+package com.example.demo4androidwebservices.networkServices
 
 import com.example.demo4androidwebservices.crud.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.crud.data.models.TaskModel

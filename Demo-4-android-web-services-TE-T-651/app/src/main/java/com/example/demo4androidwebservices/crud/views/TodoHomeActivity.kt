@@ -87,6 +87,8 @@ class TodoHomeActivity: AppCompatActivity() {
             binding.rvTodoList.visibility =
                 if (isLoading) View.GONE
                 else View.VISIBLE
+
+            binding.fabAddItem.isEnabled = !isLoading
         }
 
         viewModel.tasks.observe(this) {
@@ -121,7 +123,7 @@ class TodoHomeActivity: AppCompatActivity() {
         adapter = TaskListAdapter(itemOnClick)
 
         binding.rvTodoList.adapter = adapter
-        binding.rvTodoList.addItemDecoration(TaskListDecor(32))
+        binding.rvTodoList.addItemDecoration(TaskListDecor(40))
         binding.rvTodoList.layoutManager = LinearLayoutManager(this)
         SwipeToDeleteCallback.addGesture(binding.rvTodoList, itemSwipe)
     }
@@ -194,6 +196,25 @@ class TodoHomeActivity: AppCompatActivity() {
         }
 
         bindingDialog.btnAdd.setOnClickListener {
+
+            if (userId.isEmpty()) {
+                bindingDialog.editTextId.error = "Enter User Id"
+                bindingDialog.editTextId.requestFocus()
+            } else {
+                if (userId.toInt() in 1..<11) {
+                    bindingDialog.editTextId.error = null
+                } else {
+                    bindingDialog.editTextId.error = "Add appropriate id"
+                }
+            }
+
+            if (taskTitle.isEmpty()) {
+                bindingDialog.editTextTitle.error = "Add task title"
+                bindingDialog.editTextId.requestFocus()
+            } else {
+                bindingDialog.editTextTitle.error = null
+            }
+
             dialog.dismiss()
             viewModel.addTask(userId.toInt(), taskTitle)
         }

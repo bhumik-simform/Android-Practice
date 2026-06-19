@@ -56,6 +56,5 @@ class TaskListAdapter(
             oldItem: TaskModel,
             newItem: TaskModel
         ) = oldItem == newItem
-
     }
 }
