@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.views
+package com.example.demo4androidwebservices.crud.views
 
 import android.graphics.Rect
 import android.view.View

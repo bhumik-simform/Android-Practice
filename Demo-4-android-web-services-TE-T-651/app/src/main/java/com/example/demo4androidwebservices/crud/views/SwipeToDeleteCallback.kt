@@ -1,13 +1,11 @@
-package com.example.demo4androidwebservices.views
+package com.example.demo4androidwebservices.crud.views
 
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.listitem.ListItemCardView
 
 object SwipeToDeleteCallback {
     fun addGesture(rv: RecyclerView, action: (Int)-> Unit ) {
-        val helper = ItemTouchHelper( object : SimpleCallback( 0, ItemTouchHelper.LEFT) {
+        val helper = ItemTouchHelper( object : ItemTouchHelper.SimpleCallback( 0, ItemTouchHelper.LEFT) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,

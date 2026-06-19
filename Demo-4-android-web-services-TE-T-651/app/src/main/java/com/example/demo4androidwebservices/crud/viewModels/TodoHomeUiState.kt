@@ -1,6 +1,6 @@
-package com.example.demo4androidwebservices.viewModels
+package com.example.demo4androidwebservices.crud.viewModels
 
-import com.example.demo4androidwebservices.data.models.TaskModel
+import com.example.demo4androidwebservices.crud.data.models.TaskModel
 
 sealed class TodoHomeUiState {
 

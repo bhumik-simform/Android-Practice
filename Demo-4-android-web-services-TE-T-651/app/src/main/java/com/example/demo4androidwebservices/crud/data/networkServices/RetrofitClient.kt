@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.data.networkServices
+package com.example.demo4androidwebservices.crud.data.networkServices
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json

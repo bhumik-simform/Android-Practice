@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.views
+package com.example.demo4androidwebservices.crud.views
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demo4androidwebservices.R
-import com.example.demo4androidwebservices.data.models.TaskModel
+import com.example.demo4androidwebservices.crud.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ItemTodoTaskBinding
 
 class TaskListAdapter(

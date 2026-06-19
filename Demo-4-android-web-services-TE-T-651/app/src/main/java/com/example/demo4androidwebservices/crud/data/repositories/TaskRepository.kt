@@ -1,8 +1,8 @@
-package com.example.demo4androidwebservices.data.repositories
+package com.example.demo4androidwebservices.crud.data.repositories
 
-import com.example.demo4androidwebservices.data.models.CreateTaskModel
-import com.example.demo4androidwebservices.data.models.TaskModel
-import com.example.demo4androidwebservices.data.networkServices.RetrofitClient
+import com.example.demo4androidwebservices.crud.data.models.CreateTaskModel
+import com.example.demo4androidwebservices.crud.data.models.TaskModel
+import com.example.demo4androidwebservices.crud.data.networkServices.RetrofitClient
 
 
 class TaskRepository {

@@ -1,7 +1,7 @@
-package com.example.demo4androidwebservices.data.networkServices
+package com.example.demo4androidwebservices.crud.data.networkServices
 
-import com.example.demo4androidwebservices.data.models.CreateTaskModel
-import com.example.demo4androidwebservices.data.models.TaskModel
+import com.example.demo4androidwebservices.crud.data.models.CreateTaskModel
+import com.example.demo4androidwebservices.crud.data.models.TaskModel
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET

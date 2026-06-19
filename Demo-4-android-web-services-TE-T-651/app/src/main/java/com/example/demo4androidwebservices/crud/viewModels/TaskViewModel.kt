@@ -1,12 +1,12 @@
-package com.example.demo4androidwebservices.viewModels
+package com.example.demo4androidwebservices.crud.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.demo4androidwebservices.data.models.CreateTaskModel
-import com.example.demo4androidwebservices.data.models.TaskModel
-import com.example.demo4androidwebservices.data.repositories.TaskRepository
+import com.example.demo4androidwebservices.crud.data.models.CreateTaskModel
+import com.example.demo4androidwebservices.crud.data.models.TaskModel
+import com.example.demo4androidwebservices.crud.data.repositories.TaskRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.HttpException

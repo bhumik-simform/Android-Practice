@@ -1,8 +1,6 @@
-package com.example.demo4androidwebservices.data.models
+package com.example.demo4androidwebservices.crud.data.models
 
 import kotlinx.serialization.Serializable
-import okhttp3.Response
-
 @Serializable
 data class TaskModel(
     val id: Int,

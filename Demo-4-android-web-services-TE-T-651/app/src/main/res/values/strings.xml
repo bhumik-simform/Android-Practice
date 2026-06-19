@@ -23,5 +23,7 @@
     <string name="dialog_btn_apply">Apply Filter</string>
     <string name="filter_dialog_rb_both_lab">Both</string>
     <string name="filter_dialog_hint_status">Select Status</string>
+    <string name="main_activity_btn_todo_proj">Todo Project</string>
+    <string name="todo_act_fab_cont_des_add_item">Add Item</string>
 
 </resources>

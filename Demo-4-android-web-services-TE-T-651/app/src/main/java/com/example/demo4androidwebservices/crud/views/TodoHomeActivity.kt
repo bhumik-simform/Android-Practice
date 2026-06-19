@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.views
+package com.example.demo4androidwebservices.crud.views
 
 import android.app.Dialog
 import android.os.Bundle
@@ -19,14 +19,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demo4androidwebservices.R
-import com.example.demo4androidwebservices.data.models.TaskModel
+import com.example.demo4androidwebservices.crud.data.models.TaskModel
 import com.example.demo4androidwebservices.databinding.ActivityTodoHomeBinding
 import com.example.demo4androidwebservices.databinding.DialogAddTaskBinding
 import com.example.demo4androidwebservices.databinding.DialogFilterTaskBinding
-import com.example.demo4androidwebservices.viewModels.TaskViewModel
+import com.example.demo4androidwebservices.crud.viewModels.TaskViewModel
 import com.google.android.material.snackbar.Snackbar
 
-class TodoHomeActivity : AppCompatActivity() {
+class TodoHomeActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityTodoHomeBinding
 

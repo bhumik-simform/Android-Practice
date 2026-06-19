@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.views
+package com.example.demo4androidwebservices
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.demo4androidwebservices.R
 import com.example.demo4androidwebservices.databinding.ActivityMainBinding
+import com.example.demo4androidwebservices.crud.views.TodoHomeActivity
 
 class MainActivity : AppCompatActivity() {
 
