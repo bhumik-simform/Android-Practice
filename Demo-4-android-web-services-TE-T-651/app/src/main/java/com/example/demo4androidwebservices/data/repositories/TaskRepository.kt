@@ -1,10 +1,8 @@
 package com.example.demo4androidwebservices.data.repositories
 
-import android.util.Log
 import com.example.demo4androidwebservices.data.models.CreateTaskModel
 import com.example.demo4androidwebservices.data.models.TaskModel
 import com.example.demo4androidwebservices.data.networkServices.RetrofitClient
-import kotlinx.coroutines.runBlocking
 
 
 class TaskRepository {
@@ -28,4 +26,7 @@ class TaskRepository {
         apiService.deleteTask(taskId)
     }
 
+    suspend fun applyFilter(userId: Int?, completed: Boolean?): List<TaskModel> {
+        return apiService.filterTasks(userId, completed)
+    }
 }

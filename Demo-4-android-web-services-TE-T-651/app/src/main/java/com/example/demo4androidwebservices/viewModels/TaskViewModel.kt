@@ -1,6 +1,5 @@
 package com.example.demo4androidwebservices.viewModels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -77,23 +76,17 @@ class TaskViewModel : ViewModel() {
         val currentList = _tasks.value?.toMutableList() ?: return
         val newTaskRequest = CreateTaskModel(userId, taskTitle)
 
-        Log.d("MyApi", "$newTaskRequest")
-
         _loadingState.value = true
 
         viewModelScope.launch {
             try {
 
                 val newTask = repository.addTask(newTaskRequest)
-                Log.d("MyApi", "$newTask")
                 currentList.add(newTask)
                 _tasks.value = currentList
                 _loadingState.value = false
 
             } catch (e: HttpException) {
-
-                Log.e("MyApi", "${e.code()}")
-                Log.e("MyApi", e.message.toString())
 
                 _onError.value = e.message.toString()
                 _loadingState.value = false
@@ -133,6 +126,23 @@ class TaskViewModel : ViewModel() {
         val currentList = _tasks.value?.toMutableList() ?: return
         currentList.add(position, task)
         _tasks.value = currentList
+    }
+
+    fun applyFilters(userId: Int?, completed: Boolean?) {
+
+        _loadingState.value = true
+
+
+        viewModelScope.launch {
+            try {
+                val filteredList = repository.applyFilter(userId, completed)
+                _loadingState.value = false
+                _tasks.value = filteredList
+            } catch (e: Exception) {
+                _loadingState.value = false
+                _onError.value = e.message.toString()
+            }
+        }
     }
 }
 

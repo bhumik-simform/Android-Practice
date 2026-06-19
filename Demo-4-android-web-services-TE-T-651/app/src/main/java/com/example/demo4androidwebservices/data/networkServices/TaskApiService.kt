@@ -8,6 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface TaskApiService {
 
@@ -22,4 +23,10 @@ interface TaskApiService {
 
     @DELETE("todos/{id}")
     suspend fun deleteTask(@Path("id")taskId: Int)
+
+    @GET("todos")
+    suspend fun filterTasks(
+        @Query("userId") userId: Int?,
+        @Query("completed") completed: Boolean?
+    ): List<TaskModel>
 }

@@ -53,7 +53,6 @@ class TodoHomeActivity : AppCompatActivity() {
     }
 
 
-
     private fun setupMenu() {
 
         this.setSupportActionBar(binding.toolBarTodoHome)
@@ -61,17 +60,18 @@ class TodoHomeActivity : AppCompatActivity() {
         val menuHost: MenuHost = this
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.menu_todo_home,menu)
+                menuInflater.inflate(R.menu.menu_todo_home, menu)
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-               return  when(menuItem.itemId) {
-                   R.id.action_filter -> {
-                       showFilterDialog()
-                       true
-                   }
-                   else -> false
-               }
+                return when (menuItem.itemId) {
+                    R.id.action_filter -> {
+                        showFilterDialog()
+                        true
+                    }
+
+                    else -> false
+                }
             }
         })
     }
@@ -220,21 +220,37 @@ class TodoHomeActivity : AppCompatActivity() {
 
         dialog.window?.setBackgroundDrawableResource(R.drawable.bg_dialog)
 
-        val userIds = Array(11) { if (it==0) "All Users" else it.toString() }
+        var userId: Int? = null
+        var completed: Boolean? = null
 
-        val idAdapter = ArrayAdapter<String>(this,R.layout.item_user_id_drop_down, userIds)
+        val userIds = Array(11) { if (it == 0) "All Users" else it.toString() }
+        val idAdapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, userIds)
 
-        dialogBinding.autoComTvUserId.setAdapter(idAdapter)
-
-        dialogBinding.autoComTvUserId.setText(dialogBinding.autoComTvUserId.adapter.getItem(0).toString(),false)
-
-        dialogBinding.autoComTvUserId.setOnItemClickListener { parent, _, position, _ ->
-            val id = parent.getItemAtPosition(position).toString()
+        dialogBinding.autoComTvUserId.apply {
+            setAdapter(idAdapter)
+            setText(this.adapter.getItem(0).toString(), false)
+            setOnItemClickListener { parent, _, position, _ ->
+               userId = parent.getItemAtPosition(position).toString().toIntOrNull()
+            }
         }
 
+        dialogBinding.radioGrpStatus.setOnCheckedChangeListener { _, checkedStatus ->
+            completed = when(checkedStatus) {
+                R.id.radio_btn_both -> null
+                R.id.radio_btn_com -> true
+                R.id.radio_btn_inCom -> false
+                else -> null
+            }
+        }
 
         dialogBinding.btnCancel.setOnClickListener {
             dialog.dismiss()
+        }
+
+        dialogBinding.btnApplyFilter.setOnClickListener {
+            dialog.dismiss()
+            viewModel.applyFilters(userId, completed)
         }
 
         dialog.setCancelable(false)
