@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.demo4androidwebservices.auth.LoginActivity
 import com.example.demo4androidwebservices.databinding.ActivityMainBinding
 import com.example.demo4androidwebservices.crud.views.TodoHomeActivity
 
@@ -31,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnTodoProj.setOnClickListener {
             val intent = Intent(this, TodoHomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnAuthProj.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }

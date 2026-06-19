@@ -1,4 +1,4 @@
-package com.example.demo4androidwebservices.crud.data.networkServices
+package com.example.demo4androidwebservices.networkServices
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
@@ -19,5 +19,15 @@ object RetrofitClient {
                 "application/json".toMediaType()
             )
         ).build().create(TaskApiService::class.java)
+    }
+
+    private const val AUTH_URL = "https://dummyjson.com/"
+
+    val authApiService: AuthApiService by lazy {
+        Retrofit.Builder().baseUrl(AUTH_URL).addConverterFactory(
+            json.asConverterFactory(
+                "application/json".toMediaType()
+            )
+        ).build().create(AuthApiService::class.java)
     }
 }

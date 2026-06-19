@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">Demo 4 Android Web services</string>
 
+    <string name="tv_greeting">Hello! %1$s</string>
 
-<!--    Recycler View   -->
+    <!--    Recycler View   -->
     <string name="item_task_tv_user_id">User ID: %1$d</string>
 
-<!--    Dialogs   -->
+    <!--    Dialogs   -->
 
     <string name="dialog_btn_cancel">Cancel</string>
 
@@ -25,5 +26,7 @@
     <string name="filter_dialog_hint_status">Select Status</string>
     <string name="main_activity_btn_todo_proj">Todo Project</string>
     <string name="todo_act_fab_cont_des_add_item">Add Item</string>
+    <string name="act_login_title">Login</string>
+    <string name="main_activity_btn_auth_proj">Authentication</string>
 
 </resources>
