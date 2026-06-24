@@ -29,4 +29,7 @@
     <string name="act_login_title">Login</string>
     <string name="main_activity_btn_auth_proj">Authentication</string>
 
+    <string name="login_act_hint_username">Username</string>
+    <string name="login_act_hint_password">Password</string>
+
 </resources>

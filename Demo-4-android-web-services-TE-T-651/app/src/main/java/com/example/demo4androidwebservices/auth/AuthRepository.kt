@@ -1,6 +1,5 @@
 package com.example.demo4androidwebservices.auth
 
-import android.util.Log
 import com.example.demo4androidwebservices.networkServices.RetrofitClient
 
 class AuthRepository {
