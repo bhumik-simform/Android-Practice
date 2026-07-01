@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Demo 4 Android Web services</string>
+
+    <string name="tv_greeting">Hello! %1$s</string>
+
+    <!--    Recycler View   -->
+    <string name="item_task_tv_user_id">User ID: %1$d</string>
+
+    <!--    Dialogs   -->
+
+    <string name="dialog_btn_cancel">Cancel</string>
+
+    <!--    Add task Dialog   -->
+    <string name="task_dialog_title_add">Add Task</string>
+    <string name="task_dialog_hint_user_id">Add User Id</string>
+    <string name="task_dialog_hint_task_title">Add Task Title</string>
+    <string name="task_dialog_btn_add">Add Task</string>
+
+    <!--    Filter Tasks    -->
+    <string name="task_dialog_title_filter">Filter your tasks</string>
+    <string name="filter_dialog_hint_user_id">Select User Id</string>
+    <string name="filter_dialog_rb_com_lab">Completed</string>
+    <string name="filter_dialog_rb_in_com_lab">Incompleted</string>
+    <string name="dialog_btn_apply">Apply Filter</string>
+    <string name="filter_dialog_rb_both_lab">Both</string>
+    <string name="filter_dialog_hint_status">Select Status</string>
+    <string name="main_activity_btn_todo_proj">Todo Project</string>
+    <string name="todo_act_fab_cont_des_add_item">Add Item</string>
+    <string name="act_login_title">Login</string>
+    <string name="main_activity_btn_auth_proj">Authentication</string>
+
+    <string name="login_act_hint_username">Username</string>
+    <string name="login_act_hint_password">Password</string>
+
+</resources>
