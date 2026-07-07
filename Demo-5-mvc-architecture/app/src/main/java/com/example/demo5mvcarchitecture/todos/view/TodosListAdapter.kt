@@ -14,7 +14,7 @@ class TodosListAdapter: ListAdapter<UserTask, TodosListAdapter.TodosViewHolder>(
         parent: ViewGroup,
         viewType: Int
     ): TodosViewHolder {
-        val binding = ItemTodoTaskBinding.inflate(LayoutInflater.from(parent.context),parent,true)
+        val binding = ItemTodoTaskBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return TodosViewHolder(binding)
     }
     // Get item from list and bind it using View Holder
