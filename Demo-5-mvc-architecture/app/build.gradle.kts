@@ -39,6 +39,10 @@ android {
 }
 
 dependencies {
+    // Implemented dependencies for retrofit
+    implementation(libs.retrofit2.retrofit)
+    // Impelmented gson dependency for json data parsing
+    implementation(libs.converter.gson)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
