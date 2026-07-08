@@ -1,5 +1,5 @@
 package com.example.demo5mvvmarchitecture.auth.repository
-import com.example.demo5mvvmarchitecture.auth.apis.AuthApi
+import com.example.demo5mvvmarchitecture.auth.api.AuthApi
 import com.example.demo5mvvmarchitecture.auth.login.model.LoginRequest
 import com.example.demo5mvvmarchitecture.auth.login.model.LoginResponse
 import com.example.demo5mvvmarchitecture.networkservices.RetrofitClient

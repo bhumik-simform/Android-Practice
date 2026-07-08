@@ -1,4 +1,4 @@
-package com.example.demo5mvvmarchitecture.auth.options
+package com.example.demo5mvvmarchitecture.todos.options
 
 import com.example.demo5mvvmarchitecture.todos.usertodos.model.TodoTask
 

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.demo5mvvmarchitecture.auth.options.UserTodosUiState
+import com.example.demo5mvvmarchitecture.todos.options.UserTodosUiState
 import com.example.demo5mvvmarchitecture.todos.repository.TodosRepository
 import com.example.demo5mvvmarchitecture.todos.usertodos.model.TodoTask
 import kotlinx.coroutines.launch

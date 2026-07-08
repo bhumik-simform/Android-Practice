@@ -1,4 +1,4 @@
-package com.example.demo5mvvmarchitecture.auth.apis
+package com.example.demo5mvvmarchitecture.auth.api
 
 import com.example.demo5mvvmarchitecture.auth.login.model.LoginRequest
 import com.example.demo5mvvmarchitecture.auth.login.model.LoginResponse

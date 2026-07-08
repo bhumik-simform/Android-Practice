@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demo5mvvmarchitecture.auth.login.model.LoginResponse
-import com.example.demo5mvvmarchitecture.auth.options.UserTodosUiState
+import com.example.demo5mvvmarchitecture.todos.options.UserTodosUiState
 import com.example.demo5mvvmarchitecture.databinding.ActivityUserTodosBinding
 import com.example.demo5mvvmarchitecture.todos.usertodos.viewmodel.UserTodosViewModel
 
