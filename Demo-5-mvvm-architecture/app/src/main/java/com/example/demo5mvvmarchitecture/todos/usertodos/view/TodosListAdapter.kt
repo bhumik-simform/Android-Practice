@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class TodosListAdapter: ListAdapter<TodoTask, TodosListAdapter.TodosViewHolder>(TodosDiffCallBack()) {
+class TodosListAdapter(
+    private val onItemClicked: (TodoTask) -> Unit
+): ListAdapter<TodoTask, TodosListAdapter.TodosViewHolder>(TodosDiffCallBack()) {
     // Create New View Holders
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -25,10 +27,13 @@ class TodosListAdapter: ListAdapter<TodoTask, TodosListAdapter.TodosViewHolder>(
         val item = getItem(position)
         holder.bindData(item)
     }
-    class TodosViewHolder(private val binding: ItemTodoTaskBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class TodosViewHolder(private val binding: ItemTodoTaskBinding): RecyclerView.ViewHolder(binding.root) {
         fun bindData(item: TodoTask) { // Used to bind data of item with view widgets
             binding.tvTaskTitle.text = item.taskTitle
             binding.cbTaskCompletion.isChecked = item.isCompleted ?: false
+            binding.root.setOnClickListener {
+                onItemClicked(item)
+            }
         }
     }
     //Implemented to compare items of recycler view to upgrade view efficiently

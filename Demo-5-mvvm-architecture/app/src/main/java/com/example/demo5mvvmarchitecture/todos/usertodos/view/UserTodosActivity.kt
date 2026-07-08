@@ -13,14 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.demo5mvvmarchitecture.auth.login.model.LoginResponse
 import com.example.demo5mvvmarchitecture.todos.options.UserTodosUiState
 import com.example.demo5mvvmarchitecture.databinding.ActivityUserTodosBinding
+import com.example.demo5mvvmarchitecture.todos.usertodos.model.TodoTask
 import com.example.demo5mvvmarchitecture.todos.usertodos.viewmodel.UserTodosViewModel
 
 class UserTodosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserTodosBinding
     private val viewModel: UserTodosViewModel by viewModels()
-    private val adapter: TodosListAdapter by lazy {
-        TodosListAdapter()
-    }
+    private lateinit var adapter: TodosListAdapter
     private val loggedInUser: LoginResponse? by lazy {
         intent.getParcelableExtra("LOGED_IN_USER", LoginResponse::class.java)
     }
@@ -46,11 +45,12 @@ class UserTodosActivity : AppCompatActivity() {
                 }
                 is UserTodosUiState.OnError -> {
                     showLoadingState(false)
+                    if(state.defaultList != null) adapter.submitList(state.defaultList)
                     Toast.makeText(this,state.message, Toast.LENGTH_SHORT).show()
                 }
                 is UserTodosUiState.OnSuccess -> {
                     showLoadingState(false)
-                    adapter.submitList(state.data )
+                    adapter.submitList(state.data)
                 }
             }
         }
@@ -64,6 +64,13 @@ class UserTodosActivity : AppCompatActivity() {
         binding.toolBarUserTodos.title = "Hello $userName"
     }
     private fun setupRecyclerView() {
+
+        val onItemClicked: (TodoTask)-> Unit = { todoItem ->
+            viewModel.toggleStatusFor(todoItem)
+        }
+
+        adapter = TodosListAdapter(onItemClicked)
+
         binding.rvTodos.apply {
             layoutManager = LinearLayoutManager(this@UserTodosActivity)
             adapter = this@UserTodosActivity.adapter
