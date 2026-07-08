@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Demo 5 MVVM Architecture</string>
+    <string name="main_btn_todos_app">Todos App</string>
 </resources>
