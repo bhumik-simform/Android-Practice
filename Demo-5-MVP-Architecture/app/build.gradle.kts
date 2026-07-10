@@ -1,5 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
+    //Plugin for kotlin Serialization
+    alias(libs.plugins.kotlinSerialization)
+    //Plugin for kotlin Parcelize
+    alias(libs.plugins.kotlinParcelize)
 }
 
 android {
@@ -8,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.demo5mvparchitecture"
-        minSdk = 24
+        minSdk = 33
         //noinspection OldTargetApi
         targetSdk = 36
         versionCode = 1
@@ -27,9 +31,16 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlin.serialization)
+    //Kotlin Serialzation dependency
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
