@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Demo 5 MVP Architecture</string>
+    <string name="login_title">Login</string>
+    <string name="login_hint_username">User Name</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_btn_login">LOGIN</string>
+</resources>
